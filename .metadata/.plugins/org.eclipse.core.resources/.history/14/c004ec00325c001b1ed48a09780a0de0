@@ -1,0 +1,45 @@
+package com.app.pojos;
+
+import java.util.List;
+
+public class ProcessedSchedule {
+
+	private Faculty faculty;
+	private Subject subject;
+	private List<Schedule> schedule;
+	
+	public ProcessedSchedule(){
+		
+	}
+	public Faculty getFaculty() {
+		return faculty;
+	}
+	public void setFaculty(Faculty faculty) {
+		this.faculty = faculty;
+	}
+	public Subject getSubject() {
+		return subject;
+	}
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
+	
+	
+	public ProcessedSchedule(Faculty faculty, Subject subject, List<Schedule> schedule) {
+		super();
+		this.faculty = faculty;
+		this.subject = subject;
+		this.schedule = schedule;
+	}
+	public List<Schedule> getSchedule() {
+		return schedule;
+	}
+	public void setSchedule(List<Schedule> schedule) {
+		this.schedule = schedule;
+	}
+	@Override
+	public String toString() {
+		return "ProcessedSchedule [faculty=" + faculty + ", subject=" + subject + ", schedule=" + schedule + "]";
+	}
+	
+}
