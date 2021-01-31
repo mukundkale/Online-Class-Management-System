@@ -35,5 +35,11 @@ public class LoginServiceImpl implements ILoginService {
 			return loginRepo.findById(id).orElse(null);
 		}
 
+		@Override
+		public Login getLoginByUserName(String userName) {
+			
+			return loginRepo.findByUserName(userName);
+		}
+
 
 }

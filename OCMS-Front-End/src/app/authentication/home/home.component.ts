@@ -7,10 +7,11 @@ import {CommonModule} from '@angular/common';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
+  invalidLogin: boolean =false;
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

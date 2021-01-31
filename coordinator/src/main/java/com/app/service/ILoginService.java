@@ -9,6 +9,7 @@ public interface ILoginService {
   Login getLoginDetails(String userName,String password);
 
   Login getLoginById(Integer id);
+  Login getLoginByUserName(String userName);
 
   
   List<Login> getAll();

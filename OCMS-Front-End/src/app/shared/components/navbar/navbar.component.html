@@ -107,14 +107,6 @@
         <button mat-icon-button class="example-icon" id="sidebarCollapse" aria-label="Example icon-button with menu icon">
           <mat-icon>menu</mat-icon>
         </button>
-        <span>OCMS</span>
-        <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-          <mat-icon>share</mat-icon>
-        </button>
         <div class="navbar-text">
         <span style="text-align: right;">Welcome Online To Class Management System</span>
         </div>
@@ -124,44 +116,53 @@
       <!-- Sidebar -->
         <nav id="sidebar">
             <ul class="list-unstyled components">
-                <p>Weclome UserName</p>
+                <p>Weclome {{ username }}</p>
                 <li class="active">
-                    <a  [routerLink]="['student-list']" routerLinkActive="active" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a [routerLink]="['student-list']" routerLinkActive="active">Home</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
+                  <li class="nav-item">
+                    <a class="nav-link navbar-brand" *ngIf="invalidLogin" [routerLink]="['/home/login']" routerLinkActive="active" >Login</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link navbar-brand"  *ngIf="invalidLogin" [routerLink]="['/reset-password']" routerLinkActive="active" >Reset Password</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"   *ngIf="isAdmin" [routerLink]="['/cc/home']" routerLinkActive="active" >Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"     *ngIf="isFaculty" [routerLink]="['/faculty/home']" routerLinkActive="active" >Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"    *ngIf="isStudent" [routerLink]="['/student/home']" routerLinkActive="active" >Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"   *ngIf="isAdmin" [routerLink]="['/cc/faculties']" routerLinkActive="active" >Faculties</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"   *ngIf="isAdmin" [routerLink]="['/cc/notices']" routerLinkActive="active" >Notice</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"   *ngIf="isAdmin" [routerLink]="['/cc/schedule']" routerLinkActive="active" >Schedule</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"   *ngIf="isAdmin" [routerLink]="['/cc/students']" routerLinkActive="active" >Students</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"  *ngIf="isAdmin" [routerLink]="['/cc/subjects']" routerLinkActive="active" >Subjects</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"   *ngIf="isFaculty" [routerLink]="['/faculty/subjects']" routerLinkActive="active" >My Subjects</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"   *ngIf="isFaculty" [routerLink]="['/faculty/assignments']" routerLinkActive="active" >Assignments</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"   *ngIf="isStudent" [routerLink]="['/student/assignments']" routerLinkActive="active" >Assignments</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"   *ngIf="isStudent" [routerLink]="['/student/schedule']" routerLinkActive="active" >Schedule</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"   *ngIf="isStudent" [routerLink]="['/student/subjects']" routerLinkActive="active" >Subjects</a>
+                  </li>
             </ul>
         </nav>
       </div>

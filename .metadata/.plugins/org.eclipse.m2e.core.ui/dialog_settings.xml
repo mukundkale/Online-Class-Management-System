@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\DELL\Downloads\spring-security-with-zuul-master"/>
+			<item value="E:\DAC Final Project\spring-security-jwt-example-master\spring-security-jwt-example-master"/>
 			<item value="E:\DAC\6) j2ee\project_help\JWT Security\spring-angular-jwt-backend"/>
 			<item value="E:\DAC Final Project\Back end\Project\student"/>
 			<item value="E:\DAC Final Project\Back end\Project\faculty"/>
@@ -18,7 +20,21 @@
 		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
 	</section>
 	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.MavenRepositorySearchDialog">
+		<item key="width" value="480"/>
+		<item key="height" value="667"/>
+		<item key="x" value="1035"/>
+		<item key="y" value="95"/>
 	</section>
 </section>

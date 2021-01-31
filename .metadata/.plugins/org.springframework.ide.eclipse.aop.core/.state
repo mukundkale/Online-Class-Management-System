@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="spring-angular-jwt-backend"/>
+<aop-project name="coordinator"/>
+<aop-project name="spring-security-with-zuul"/>
+<aop-project name="config-server"/>
+<aop-project name="eureka-server"/>
 <aop-project name="faculty"/>
 <aop-project name="student"/>
+<aop-project name="login-service"/>
+<aop-project name="profile-service"/>
+<aop-project name="auth-service"/>
 <aop-project name="service-registry"/>
+<aop-project name="admin-service"/>
 </aop-reference-model>

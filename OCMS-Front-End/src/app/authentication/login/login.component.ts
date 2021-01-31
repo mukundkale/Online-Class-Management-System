@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../shared/services/authentication.service';
+import { user } from 'src/app/shared/models/user';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { AuthenticationService } from '../../shared/services/authentication.serv
 })
 export class LoginComponent implements OnInit {
 
-values: any;
+  user: user = new user;
 invalidLogin: boolean =false;
 constructor(private router: Router, private http: HttpClient,private authService: AuthenticationService) { }
 
@@ -22,53 +23,25 @@ constructor(private router: Router, private http: HttpClient,private authService
 
 
    onSubmit(f: NgForm) {
+     this.authService.login(f.value.username,f.value.password).subscribe((data) => {
+       this.user = data;
+       //console.log(this.user);
+
+      if(this.user==null){
+        this.invalidLogin=true;
+      }else{
+        localStorage.setItem('userDetails',JSON.stringify(this.user));
+
+        if(this.user.role=="cc"){
+          this.router.navigate(['/cc/home']);
+        }else if(this.user.role=="faculty"){
+           this.router.navigate(['/faculty/home']);
+        }else{
+          this.router.navigate(['/student/home']);
+        }
+      }
+     });
     
-     console.log(f.value.username);
-     console.log(f.value.password);
-     console.log(f.value.role);
-    // const loginObserver = {
-    //   next: () => console.log('User logged in'),
-    //   error: (err: any) => console.log(err)
-    // };
-
-
-    // this.authService.login(f).subscribe(result=>{
-    //   if (result) {
-        
-    //   } else {
-    //     this.invalidLogin = true;
-    //   }
-    // });
-    this.authService.setRole(f.value.role);
-
-    if(f.value.role === "Coordinator"){
-      this.router.navigate(['/cc/home']);
-    }else if(f.value.role === "Faculty"){
-      this.router.navigate(['/faculty/home']);
-    }else if(f.value.role === "Student"){
-      this.router.navigate(['/student/home']);
-    }else{
-      this.invalidLogin=true;
-    }
-    //this.router.navigate(['navbar']);
   }
-
-
-
-
-
-
-
 }
 
-
-
-// getValues() {
-//   return this.http.get("http://localhost:8080/login/name").subscribe(response => {
-//     console.log(response);
-//     this.values = response;
-    
-//   }, error => {
-//     console.log(error);
-//   });
-// }}

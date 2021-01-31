@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.pojos.Login;
 import com.app.service.ILoginService;
 
 @RestController 
@@ -25,11 +26,12 @@ public class LoginController {
 		System.out.println("in ctor of " + getClass().getName());
 	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<?> getUser(@PathVariable Integer id) {
+	@GetMapping("/{userName}/{password}")
+	public ResponseEntity<?> getUser(@PathVariable String userName, @PathVariable String password) {
 		System.out.println("in getUser data: ");
 		try {
-			return ResponseEntity.ok(loginService.getLoginById(id));
+			System.out.println(userName + " " + password);
+			return ResponseEntity.ok(loginService.getLoginDetails(userName,password));
 		} catch (RuntimeException e) {
 			System.out.println("err in controller " + e);
 		}
