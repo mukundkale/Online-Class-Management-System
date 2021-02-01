@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuardService } from '../shared/services/auth-guard.service';
+import { CcAuthGuardService } from '../shared/services/cc-auth-guard.service';
 import { CcfacultyComponent } from './cc-faculty/ccfaculty.component';
 import { CchomeComponent } from './cc-home/cchome.component';
 import { CcnoticeComponent } from './cc-notice/ccnotice.component';
@@ -9,16 +11,34 @@ import { CcsubjectComponent } from './cc-subject/ccsubject.component';
 
 const routes: Routes = [
 
-  { path: 'cc/faculties', component: CcfacultyComponent},
-  { path: 'cc/home', component:  CchomeComponent},
-  { path: 'cc/notices', component:  CcnoticeComponent},
-  { path: 'cc/schedule', component:  CcscheduleComponent},
-  { path: 'cc/students', component:  CcstudentComponent},
-  { path: 'cc/subjects', component:  CcsubjectComponent},
+  { path: 'cc/faculties', 
+    component: CcfacultyComponent,
+    canActivate:[AuthGuardService,CcAuthGuardService],
+  },
+
+  { path: 'cc/home', component:  CchomeComponent,
+    canActivate:[AuthGuardService,CcAuthGuardService],
+  },
+
+  { path: 'cc/notices', component:  CcnoticeComponent,
+    canActivate:[AuthGuardService,CcAuthGuardService],
+  },
+
+  { path: 'cc/schedule', component:  CcscheduleComponent,
+    canActivate:[AuthGuardService,CcAuthGuardService],
+  },
+
+  { path: 'cc/students', component:  CcstudentComponent,
+    canActivate:[AuthGuardService,CcAuthGuardService],
+  },
+
+  { path: 'cc/subjects', component:  CcsubjectComponent,
+    canActivate:[AuthGuardService,CcAuthGuardService],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+   exports: [RouterModule]
 })
 export class CourseCoordinatorRoutingModule { }

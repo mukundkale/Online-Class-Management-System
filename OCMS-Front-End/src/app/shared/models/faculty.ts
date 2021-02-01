@@ -3,6 +3,6 @@ export class faculty {
   first_name!: string;
   last_name!: string;
   email_id!: string;
-  phone_no!: number;
+  phone_no!: string;
   subject_id!: number;
 }

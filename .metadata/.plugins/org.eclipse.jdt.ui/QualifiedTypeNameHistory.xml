@@ -12,4 +12,5 @@
 <fullyQualifiedTypeName name="org.springframework.util.StringUtils"/>
 <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
 <fullyQualifiedTypeName name="com.app.pojos.Assignment"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
 </qualifiedTypeNameHistroy>

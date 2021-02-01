@@ -7,6 +7,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule,MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import { ViewChild } from '@angular/core';
+import { ProcessedSchedule } from 'src/app/shared/models/ProcessedSchedule';
 
 @Component({
   selector: 'app-schedule-list',
@@ -15,7 +16,7 @@ import { ViewChild } from '@angular/core';
 })
 export class ScheduleListComponent implements OnInit {
 
-  schedules:schedule[]=[];
+  schedules:ProcessedSchedule[]=[];
   // schedule_id!: number;
   //   subject_id!: number;
   //   calender_date!: Date;
@@ -40,8 +41,9 @@ export class ScheduleListComponent implements OnInit {
 
   getSchedules(){
     this.scheduleService.getAll().subscribe(data=>{
-      console.log(data);
+     // console.log(data);
       this.schedules=data;
+      console.log(this.schedules);
       this.dataSource=new MatTableDataSource(this.schedules);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort=this.sort;

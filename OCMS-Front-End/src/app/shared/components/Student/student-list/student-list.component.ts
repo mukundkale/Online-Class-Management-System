@@ -70,9 +70,8 @@ export class StudentListComponent implements OnInit {
     dialogconfig.disableClose = true;
     dialogconfig.autoFocus = true;
     dialogconfig.width = '60%';
-     this.studentService.setStudent(id);
+    this.studentService.setStudent(id);
     this.dialog.open(UpdateStudentComponent, dialogconfig);
-    //this.router.navigate(['/student-details', id]);
   }
 
   updateStudent(id: number) {

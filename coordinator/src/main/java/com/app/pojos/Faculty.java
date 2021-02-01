@@ -43,7 +43,7 @@ public class Faculty {
 	private String emailId;
 	
 	@JsonProperty("phone_no")
-	private Integer phoneNo;
+	private String phoneNo;
 	
 	@JsonProperty("address_id")
 	private Integer addressId;
@@ -83,11 +83,11 @@ public class Faculty {
 		this.emailId = emailId;
 	}
 
-	public Integer getPhoneNo() {
+	public String getPhoneNo() {
 		return phoneNo;
 	}
 
-	public void setPhoneNo(Integer phoneNo) {
+	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 
@@ -107,7 +107,7 @@ public class Faculty {
 		this.subjectId = subjectId;
 	}
 
-	public Faculty(Integer facultyId, String firstName, String lastName, String emailId, Integer phoneNo,
+	public Faculty(Integer facultyId, String firstName, String lastName, String emailId, String phoneNo,
 			Integer addressId, Integer subjectId) {
 		super();
 		this.facultyId = facultyId;

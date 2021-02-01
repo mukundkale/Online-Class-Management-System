@@ -9,7 +9,7 @@ import { AppError } from '../errors/app-error';
 import { inject } from '@angular/core/testing';
 
 export class DataService {
-  constructor(private url: string, private httpclient: HttpClient) {}
+  constructor(private url: string, public httpclient: HttpClient) {}
 
   getAll() {
     return this.httpclient
@@ -30,20 +30,13 @@ export class DataService {
   }
 
 
-  update(resource: any) {
-    console.log(resource); // here student_id faculty_id cannot be used as a generic type so it will always give err
-    return this.httpclient
-      .post(this.url + '/' + resource.student_id, resource)
-      .pipe(catchError(this.errorHandler));
-  }
-
   delete(id: any) {
     return this.httpclient
       .delete(this.url + '/' + id)
       .pipe(catchError(this.errorHandler));
   }
 
-  private errorHandler(error: Response) {
+  public errorHandler(error: Response) {
     if (error.status === 400) return throwError(new BadInput(error.json()));
 
     if (error.status === 404) return throwError(new NotFoundError());

@@ -34,6 +34,8 @@ import { CommonModule } from '@angular/common';
 import { MatSortModule } from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input'
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { CcAuthGuardService } from './shared/services/cc-auth-guard.service';
+import { AuthGuardService } from './shared/services/auth-guard.service';
 
 
 @NgModule({
@@ -67,6 +69,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   ],
   providers: [
     AssignmentService,
+    CcAuthGuardService,
+    AuthGuardService,
     FacultyService,
     NotesService,
     NoticeService,

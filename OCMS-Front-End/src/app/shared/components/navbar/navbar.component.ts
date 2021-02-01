@@ -3,6 +3,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { MatToolbarModule } from '@angular/material/toolbar/toolbar-module';
 import * as $ from 'jquery';
 import { user } from 'src/app/shared/models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,7 @@ import { user } from 'src/app/shared/models/user';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService, private router: Router) { }
   
   user: user = new user;
   username!:string;
@@ -24,13 +25,15 @@ export class NavbarComponent implements OnInit {
 
     let user1=localStorage.getItem("userDetails");
     if(user1!=null){
-     this.user=JSON.parse(user1);
+    this.user=JSON.parse(user1);
       
     }
     this.username=this.user.userName;
+
     if(this.user.role=="cc"){
       this.isAdmin=true;
-    }else if(this.user.role="faculty"){
+    }else if(this.user.role=="faculty"){
+      console.log("xyz");
       this.isFaculty=true;
     }else if(this.user.role=="student"){
       this.isStudent=true;
@@ -52,5 +55,12 @@ export class NavbarComponent implements OnInit {
 
 
      });
+    }
+
+    logout(){
+      localStorage.removeItem("userDetails");
+      localStorage.clear();
+      console.log("in log out");
+      this.router.navigate(['login']);
     }
 }

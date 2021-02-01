@@ -14,6 +14,8 @@ import { user } from '../models/user';
 })
 export class AuthenticationService {
 
+  user:user=new user;
+  isLoggedIn:boolean=false;
   // role:any;
   authUrl = "http://localhost:8081/login";
 
@@ -21,6 +23,28 @@ export class AuthenticationService {
 
   login(f1:string,f2:string) {
       return this.http.get<user>(this.authUrl+"/"+f1+"/"+f2).pipe(catchError(this.errorHandler));
+    }
+
+    getCurrentUser(){
+      let user1=localStorage.getItem("userDetails");
+      if(user1!=null){
+       this.user=JSON.parse(user1);  
+      }
+      this.isLoggedIn=true;
+      return this.user;
+    }
+
+    setUser(u:user){
+      this.user=u;
+      if(this.user!=null){
+        this.isLoggedIn=true;
+      }
+      console.log(this.user);
+    }
+
+    getUser(){
+      console.log(this.user);
+      return this.user;
     }
 
     private errorHandler(error: Response) {

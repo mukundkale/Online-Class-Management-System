@@ -25,7 +25,7 @@ constructor(private router: Router, private http: HttpClient,private authService
    onSubmit(f: NgForm) {
      this.authService.login(f.value.username,f.value.password).subscribe((data) => {
        this.user = data;
-       //console.log(this.user);
+      this.authService.setUser(this.user);
 
       if(this.user==null){
         this.invalidLogin=true;
@@ -34,6 +34,7 @@ constructor(private router: Router, private http: HttpClient,private authService
 
         if(this.user.role=="cc"){
           this.router.navigate(['/cc/home']);
+      
         }else if(this.user.role=="faculty"){
            this.router.navigate(['/faculty/home']);
         }else{
