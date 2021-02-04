@@ -59,6 +59,7 @@ export class StudentListComponent implements OnInit {
     this.studentService.getAll().subscribe((data) => {
       this.students = data;
       this.dataSource = new MatTableDataSource(this.students);
+      console.log(this.dataSource);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
