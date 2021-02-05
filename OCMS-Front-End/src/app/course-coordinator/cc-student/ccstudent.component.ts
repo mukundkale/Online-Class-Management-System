@@ -15,10 +15,6 @@ export class CcstudentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addNewStudent(){
-    this.router.navigate(['/cc/create-new-student']);
-  }
-
   onCreate(){
     const dialogconfig = new MatDialogConfig();
     dialogconfig.disableClose = true;

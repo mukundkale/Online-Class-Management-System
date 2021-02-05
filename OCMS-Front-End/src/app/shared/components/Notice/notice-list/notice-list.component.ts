@@ -53,10 +53,6 @@ export class NoticeListComponent implements OnInit {
       
     });
   }
-
-  addNewNotice() {
-    this.router.navigate(['/cc/upload-notice']);
-  }
   onsearchClear() {
     this.searchKey = '';
     this.applyFilter();

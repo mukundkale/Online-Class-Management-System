@@ -61,12 +61,7 @@ export class FacultyListComponent implements OnInit {
     this.facultyService.setFaculty(id);
     this.dialog.open(UpdateFacultyComponent, dialogconfig);
     console.log(id);
-   // this.router.navigate(['/faculty-details', id]);
-  }
-
-  // updateFaculty(id: number) {
-  //   this.router.navigate(['/update-faculty', id]);
-  // }
+    }
 
   deleteFaculty(id: number) {
     this.facultyService.delete(id).subscribe((data) => {

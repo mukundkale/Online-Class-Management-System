@@ -61,6 +61,8 @@ export class NavbarComponent implements OnInit {
       localStorage.removeItem("userDetails");
       localStorage.clear();
       console.log("in log out");
-      this.router.navigate(['login']);
+      this.router.navigate(['login']).then(()=>{
+        window.location.reload();
+      });
     }
 }

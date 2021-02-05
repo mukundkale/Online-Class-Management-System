@@ -12,7 +12,7 @@ import { user } from 'src/app/shared/models/user';
 })
 export class LoginComponent implements OnInit {
 
-  user: user = new user;
+user: user = new user;
 invalidLogin: boolean =false;
 constructor(private router: Router, private http: HttpClient,private authService: AuthenticationService) { }
 
@@ -33,12 +33,18 @@ constructor(private router: Router, private http: HttpClient,private authService
         localStorage.setItem('userDetails',JSON.stringify(this.user));
 
         if(this.user.role=="cc"){
-          this.router.navigate(['/cc/home']);
+          this.router.navigate(['/cc/home']).then(()=>{
+            window.location.reload();
+          });
       
         }else if(this.user.role=="faculty"){
-           this.router.navigate(['/faculty/home']);
+           this.router.navigate(['/faculty/home']).then(()=>{
+             window.location.reload();
+           });
         }else{
-          this.router.navigate(['/student/home']);
+          this.router.navigate(['/student/home']).then(()=>{
+            window.location.reload();
+          });
         }
       }
      });

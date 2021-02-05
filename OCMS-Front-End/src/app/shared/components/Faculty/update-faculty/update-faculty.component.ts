@@ -19,7 +19,6 @@ export class UpdateFacultyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    //this.id = this.route.snapshot.params['faculty_id'];
 
     this.faculty = this.facultyService.getFaculty();
     this.facultyService.getById(this.faculty.faculty_id).subscribe(
@@ -42,7 +41,6 @@ export class UpdateFacultyComponent implements OnInit {
   }
 
   goToFacultyList() {
-    //this.router.navigate(['/faculty-list']);
     this.dialogRef.close();
     window.location.reload();
   }

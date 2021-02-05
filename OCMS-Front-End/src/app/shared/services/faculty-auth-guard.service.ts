@@ -14,7 +14,9 @@ export class FacultyAuthGuardService implements CanActivate{
     if(this.authService.getUser().role=="faculty") {
       return true;
     }
-    this.router.navigate(['login']);
+    this.router.navigate(['login']).then(()=>{
+      window.location.reload();
+    });
     return false;
   }
 }

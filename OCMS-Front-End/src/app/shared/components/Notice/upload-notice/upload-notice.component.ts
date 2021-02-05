@@ -35,11 +35,6 @@ export class UploadNoticeComponent implements OnInit {
   onSubmit(){
     console.log(this.notice);
     this.notice.fauclty_id = this.id;
-    //this.notice.coordinator_id = this.id;
     this.saveNotice();
   }
-
-  // viewAllNotices(){
-  //   this.router.navigate(['/upload-notice']);
-  // }
 }

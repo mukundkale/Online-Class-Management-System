@@ -19,27 +19,15 @@ import { UpdateStudentComponent } from './components/Student/update-student/upda
 import { UploadAssignmentComponent } from './components/Assignment/upload-assignment/upload-assignment.component';
 import { UploadNoticeComponent } from './components/Notice/upload-notice/upload-notice.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
-  { path:'student-list', component: StudentListComponent},
-  { path:'student-details/:id', component: StudentDetailsComponent},
-  { path:'update-student/:id', component: UpdateStudentComponent},
-  { path:'cc/create-new-student', component: CreateStudentComponent},
-  { path:'faculty-list', component: FacultyListComponent},
-  { path:'faculty-details/:id', component: FacultyDetailsComponent},
-  { path:'cc/create-new-faculty', component: CreateFacultyComponent},
-  { path:'update-faculty/:id', component: UpdateFacultyComponent},
-  { path:'subject-list', component: SubjectListComponent},
-  { path:'subject-details/:id', component: SubjectDetailsComponent},
-  { path:'notice-list', component: NoticeListComponent},
-  { path:'cc/upload-notice', component: UploadNoticeComponent},
-  { path:'schedule-list', component: ScheduleListComponent},
-  { path:'create-new-schedule', component: CreateScheduleComponent},
-  { path:'schedule-details', component: ScheduleDetailsComponent},
-  { path:'assignment-list', component: AssignmentListComponent},
-  { path:'upload-assignment', component: UploadAssignmentComponent},
-  { path:'notes-list', component: NotesListComponent},
-  { path: 'navbar', component: NavbarComponent}
+
+{ path:'notice-list', 
+  component: NoticeListComponent,
+  canActivate:[AuthGuardService]
+},
+
 ];
 
 @NgModule({

@@ -99,9 +99,28 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     NotesListComponent,
     NavbarComponent,
     FooterComponent,
-  
-   
   ],
-
+  entryComponents:[
+    StudentListComponent,
+    StudentDetailsComponent,
+    UpdateStudentComponent,
+    CreateStudentComponent,
+    FacultyListComponent,
+    FacultyDetailsComponent,
+    UpdateFacultyComponent,
+    CreateFacultyComponent,
+    SubjectListComponent,
+    SubjectDetailsComponent,
+    NoticeListComponent,
+    UploadNoticeComponent,
+    ScheduleListComponent,
+    ScheduleDetailsComponent,
+    CreateScheduleComponent,
+    AssignmentListComponent,
+    UploadAssignmentComponent,
+    NotesListComponent,
+    NavbarComponent,
+    FooterComponent,
+  ]
 })
 export class SharedModule { }
